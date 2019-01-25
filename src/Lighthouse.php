@@ -38,6 +38,7 @@ class Lighthouse
         $process->setTimeout($this->timeout)->run();
 
         if (!$process->isSuccessful()) {
+            dump($process->getErrorOutput());
             throw new AuditFailedException($url, $process->getErrorOutput());
         }
 
